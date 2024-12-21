@@ -116,7 +116,7 @@ public class EmployeeServiceTests
 
         _employeeStoreMock.Setup(store => store.GetByIdAsync(id, It.IsAny<CancellationToken>()))
             .ReturnsAsync(Result.Success<Employee, Error>(existingEmployee));
-        _employeeStoreMock.Setup(store => store.UpdateAsync(updatedEmployee, It.IsAny<CancellationToken>()))
+        _employeeStoreMock.Setup(store => store.UpdateAsync(id, updatedEmployee, It.IsAny<CancellationToken>()))
             .ReturnsAsync(Result.Success<Employee, Error>(updatedEmployee));
 
         // Act
