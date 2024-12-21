@@ -1,0 +1,8 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <a href="#" class="navbar-brand">Access System</a>
+  <div class="navbar-nav mr-auto">
+    <li *ngFor="let item of Items" class="nav-item">
+      <a [href]="item.Link" class="nav-link">{{item.Name}}</a>
+    </li>
+  </div>
+</nav>

@@ -1,0 +1,67 @@
+@if (viewMode) {
+  @if (currentEmployee.Id) {
+    <h4>Employee Details</h4>
+    <div>
+      <label><strong>Id:</strong></label> {{ currentEmployee.Id }}
+    </div>
+    <div>
+      <label><strong>Full Name:</strong></label> {{ currentEmployee.FullName }}
+    </div>
+    <div>
+      <label><strong>Department:</strong></label> {{ currentEmployee.Department }}
+    </div>
+    <app-button color="warning" (click)="viewMode = false">
+      Edit
+    </app-button>
+  } @else {
+    <p>Please click on an Employee...</p>
+  }
+} @else {
+  @if (currentEmployee.Id) {
+    <div class="edit-form">
+      <h4>Edit Employee</h4>
+      <form>
+
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="fullName"
+            [(ngModel)]="currentEmployee.FullName"
+            name="fullName"
+          />
+        </div>
+        <div class="form-group">
+          <label for="department">Department</label>
+          <input
+            type="text"
+            class="form-control"
+            id="department"
+            [(ngModel)]="currentEmployee.Department"
+            name="department"
+          />
+        </div>
+      </form>
+
+      <app-button
+        color="danger"
+        size="sm"
+        (click)="deleteEmployee()"
+      >
+        Delete
+      </app-button>
+
+      <app-button
+        color="success"
+        size="sm"
+        (click)="updateEmployee()"
+      >
+        Update
+      </app-button>
+      <p>{{ message }}</p>
+    </div>
+  } @else {
+    <p>Cannot access this Employee...</p>
+  }
+}

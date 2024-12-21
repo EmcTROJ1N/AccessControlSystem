@@ -1,0 +1,27 @@
+<div class="list row">
+  <div class="col-md-6">
+    <h4>Employees List</h4>
+    <app-list>
+      <ng-container *ngFor="let employee of employees; let i = index">
+        <app-employee-list-item
+          [active]="i === currentIndex"
+          (click)="setActiveEmployee(employee, i)"
+          [employee]="employee"
+        ></app-employee-list-item>
+      </ng-container>
+    </app-list>
+
+    <br />
+
+    <app-button color="success" href="/employee/add">
+      Add
+    </app-button>
+  </div>
+
+  <div class="col-md-6">
+    <app-employee-details
+      [viewMode]="true"
+      [currentEmployee]="currentEmployee"
+    ></app-employee-details>
+  </div>
+</div>

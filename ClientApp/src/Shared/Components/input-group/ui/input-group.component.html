@@ -1,0 +1,12 @@
+<div class="form-group">
+    <label for="licensePlate">{{label}}</label>
+    <input
+            type="text"
+            class="form-control"
+            id="licensePlate"
+            required
+            (input)="onInputChange($event)"
+            [(ngModel)]="value"
+            [name]="name"
+    />
+</div>

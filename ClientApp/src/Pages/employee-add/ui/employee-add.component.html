@@ -1,0 +1,24 @@
+<div>
+  <div class="submit-form" [formGroup]="form">
+    @if (!submitted) {
+      <app-input-group
+        label="Full Name"
+        formControlName="FullName">
+      </app-input-group>
+
+      <app-input-group
+        label="Department"
+        formControlName="Department">
+      </app-input-group>
+
+      <app-button (click)="saveEmployee()" color="success">
+        Submit
+      </app-button>
+    } @else {
+      <h4>Employee was submitted successfully!</h4>
+      <app-button (click)="newEmployee()" color="success">
+        Add
+      </app-button>
+    }
+  </div>
+</div>

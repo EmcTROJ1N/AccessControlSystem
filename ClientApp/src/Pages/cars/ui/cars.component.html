@@ -1,0 +1,45 @@
+<div class="list row">
+  <div class="col-md-8">
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search by license plate"
+        [(ngModel)]="licensePlate"
+      />
+      <div class="input-group-append">
+        <app-button type="outline"
+                    (click)="searchByLicensePlate()"
+                    size="xl"
+        >
+          Search
+        </app-button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h4>Cars List</h4>
+    <app-list>
+      @for (car of cars; track car.Id; let i = $index) {
+        <app-car-list-item [active]="i == currentIndex"
+                           (click)="setActiveCar(car, i)"
+                           [car]="car"
+        />
+      }
+    </app-list>
+
+    <br/>
+
+    <app-button color="success"
+                href="/car/add">
+      Add
+    </app-button>
+
+  </div>
+  <div class="col-md-6">
+    <app-car-details
+      [viewMode]="true"
+      [currentCar]="currentCar"
+    ></app-car-details>
+  </div>
+</div>

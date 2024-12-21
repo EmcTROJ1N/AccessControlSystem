@@ -1,0 +1,18 @@
+<div>
+  <div class="submit-form" [formGroup]="form">
+    @if (!submitted) {
+      <app-input-group label="License Plate"
+                       formControlName="LicensePlate"
+      />
+
+      <app-input-group label="Employee ID"
+                       formControlName="EmployeeId"
+      />
+
+      <app-button (click)="checkAccess()" color="success">Check</app-button>
+    } @else {
+      <h4>{{message}}</h4>
+      <app-button (click)="newCheck()" color="success">New</app-button>
+    }
+  </div>
+</div>
